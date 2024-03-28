@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{item.name}}{% endblock %}
+
+{% block content %}
+     <div class="grid grid-cols-5 gap-6">
+         <div class="col-span-3">
+             <img src="{{item.image.url}}" class="rounded-xl">
+         </div>
+
+
+         <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
+                <h1 class="mb-6 text-3xl">{{item.name}}</h1>
+             <p class="text-gray-700"><i><strong>MRP: </strong><span class="text-slate-950">{{item.price}}</span></i></p>
+             <p class="text-gray-700"><i><strong>Seller: </strong><span class="text-slate-950">{{item.created_by.username}}</span></i></p>
+             {% if item.description %}
+             <p class="text-gray-700">
+                 <strong class="text-slate-950">Description: <br></strong>
+                 <i>{{item.description}}</i>
+             </p>
+             {% endif %}
+             <a href="/" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-cyan-500 text-white rounded-xl hover:bg-cyan-700">Contact Seller</a>
+         </div>
+     </div>
+{% endblock %}
